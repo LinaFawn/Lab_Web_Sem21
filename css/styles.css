@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #212121;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 20px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.item {
+    background-color: orange;
+    border: 2px solid darken(orange, 18%);
+    border-radius: 0.25em;
+    padding: 20px;
+}
