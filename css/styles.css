@@ -3,21 +3,263 @@
 }
 
 body {
-    background-color: #212121;
+    overflow-x: scroll;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: 200px;
-    gap: 20px;
-    max-width: 900px;
-    margin: 40px auto;
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
 }
 
-.item {
-    background-color: orange;
-    border: 2px solid darken(orange, 18%);
-    border-radius: 0.25em;
-    padding: 20px;
+.wrapper > * {
+    padding: 1vmax;
+    margin: 1vmax;
+    flex: 1 100%;
+    border-radius: 1vmax;
+}
+
+header {
+    height: 5vmax;
+    width: 25vmax;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #CCCCFF;
+}
+
+.headerCity {
+    height: 25vmax;
+    width: 25vmax;
+    text-align: left;
+
+    background-color: #CCCCFF;
+}
+
+.headerCityTempurature {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 12vmax;
+}
+
+.headerInformation {
+    height: 25vmax;
+    width: 25vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CCCCFF;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.favourites {
+    height: 5vmax;
+    width: 25vmax;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: #CCCCFF;
+}
+
+.favouritesAddCity {
+    height: 5vmax;
+    width: 25vmax;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #CCCCFF;
+}
+
+.city {
+    margin-top: 3vmax;
+    height: 25vmax;
+    width: 25vmax;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #CCCCFF;
+}
+
+.cityInformation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 7vmax;
+    width: 45vmax;
+}
+
+footer {
+    background-color: #CCCCFF;
+    width: 100%;
+    text-align: center;
+}
+
+/*
+buttons
+*/
+.refreshButton {
+    text-align: center;
+    width: 20%;
+    height: 150%;
+    font-size: 80%;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    background: #00BFFF;
+    transition: 0.2s;
+    margin-left: 2%;
+}
+
+.refreshButton:hover { background: #80A6FF; }
+
+.refreshButton:active {
+    background: #00FFFF;
+    box-shadow: 0 3vmax #00FFFF inset;
+    color: black;
+}
+
+.round {
+    width: 8vmax;
+    height: 4.5vmax;
+    font-size: 2vmax;
+    color: white;
+    text-decoration: none;
+    border-radius: 100vmax;
+    background: #00BFFF;
+    transition: 0.2s;
+    margin-left: 2%;
+}
+
+.round:hover { background: #80A6FF; }
+
+.round:active {
+    background: #00FFFF;
+    box-shadow: 0 3vmax #00FFFF inset;
+    color: black;
+}
+
+
+/*
+images
+*/
+.imgHeaderCity {
+    width: 12vmax;
+    height: 12vmax;
+    float: left;
+}
+
+.imgCityWeather {
+    width: 6vmax;
+    height: 6vmax;
+}
+
+
+/*
+ul
+*/
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+ul li {
+    padding: 0.5vmax;
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+li {
+    margin: 0.5vmax;
+    margin-left: 0%;
+    background-color: #00BFFF;
+    color: white;
+    border-color: black;
+    border-radius: 7px;
+}
+
+
+/*
+input
+*/
+.addNewCity {
+    height: 3.5vmax;
+    font-size: 1vmax;
+    border-radius: 5vmax;
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    flex: 1;
+}
+
+
+/*
+fonts
+*/
+h1 {
+    font-size: 3vmax;
+}
+
+h2 {
+    font-size: 3vmax;
+}
+
+h3 {
+    font-size: 3vmax;
+}
+
+h4 {
+    font-size: 2vmax;
+}
+
+.headerTempurature {
+    font-size: 5vmax;
+}
+
+.temperatureInformation {
+    font-size: 2vmax;
+}
+
+span {
+    font-weight: bold;
+    font-size: 1.5vmax;
+}
+
+.copyright {
+    font-size: 1.5vmax;
+    font-weight: bold;
+}
+
+
+/*
+desktop version
+*/
+@media all and (min-width: 900px) {
+    .headerCity, .headerInformation, .favourites, .favouritesAddCity, .city {
+        flex: 1 1 0;
+    }
+}
+
+@media all and (min-width: 320px) {
+    body {
+        overflow-x: hidden;
+    }
 }
