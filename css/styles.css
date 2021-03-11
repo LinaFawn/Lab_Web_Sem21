@@ -36,7 +36,7 @@ header {
     background-color: #CCCCFF;
 }
 
-.headerCityTempurature {
+.Tempurature {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -62,11 +62,9 @@ header {
 .favourites {
     height: 5vmax;
     width: 25vmax;
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
     background-color: #CCCCFF;
 }
 
@@ -85,12 +83,10 @@ header {
     margin-top: 3vmax;
     height: 25vmax;
     width: 25vmax;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background-color: #CCCCFF;
 }
 
@@ -103,7 +99,7 @@ header {
     width: 45vmax;
 }
 
-.refreshButton {
+.button {
     text-align: center;
     width: 20%;
     height: 150%;
@@ -116,14 +112,14 @@ header {
     margin-left: 2%;
 }
 
-.refreshButton:hover {
-    background: #80A6FF;
-}
-
-.refreshButton:active {
+.button:active {
     background: #00FFFF;
     box-shadow: 0 3vmax #00FFFF inset;
     color: black;
+}
+
+.refreshButton:hover {
+    background-color: #80A6FF;
 }
 
 .round {
@@ -138,7 +134,9 @@ header {
     margin-left: 2%;
 }
 
-.round:hover { background: #80A6FF; }
+.round:hover {
+    background-color: #CCCCFF;
+}
 
 .round:active {
     background: #00FFFF;
@@ -225,7 +223,7 @@ span {
     }
 }
 
-@media all and (min-width: 320px) {
+@media all and (max-width: 320px) {
     body {
         overflow-x: hidden;
     }
