@@ -25,7 +25,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background-color: #CCCCFF;
 }
 
@@ -104,15 +103,6 @@ header {
     width: 45vmax;
 }
 
-footer {
-    background-color: #CCCCFF;
-    width: 100%;
-    text-align: center;
-}
-
-/*
-buttons
-*/
 .refreshButton {
     text-align: center;
     width: 20%;
@@ -126,7 +116,9 @@ buttons
     margin-left: 2%;
 }
 
-.refreshButton:hover { background: #80A6FF; }
+.refreshButton:hover {
+    background: #80A6FF;
+}
 
 .refreshButton:active {
     background: #00FFFF;
@@ -154,10 +146,6 @@ buttons
     color: black;
 }
 
-
-/*
-images
-*/
 .imgHeaderCity {
     width: 12vmax;
     height: 12vmax;
@@ -169,10 +157,6 @@ images
     height: 6vmax;
 }
 
-
-/*
-ul
-*/
 ul {
     list-style-type: none;
     padding: 0;
@@ -197,10 +181,6 @@ li {
     border-radius: 7px;
 }
 
-
-/*
-input
-*/
 .addNewCity {
     height: 3.5vmax;
     font-size: 1vmax;
@@ -210,10 +190,6 @@ input
     flex: 1;
 }
 
-
-/*
-fonts
-*/
 h1 {
     font-size: 3vmax;
 }
@@ -243,15 +219,6 @@ span {
     font-size: 1.5vmax;
 }
 
-.copyright {
-    font-size: 1.5vmax;
-    font-weight: bold;
-}
-
-
-/*
-desktop version
-*/
 @media all and (min-width: 900px) {
     .headerCity, .headerInformation, .favourites, .favouritesAddCity, .city {
         flex: 1 1 0;
