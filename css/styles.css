@@ -36,7 +36,7 @@ header {
     background-color: #CCCCFF;
 }
 
-.headerTempurature {
+.headerCityTempurature {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -62,9 +62,11 @@ header {
 .favourites {
     height: 5vmax;
     width: 25vmax;
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
     background-color: #CCCCFF;
 }
 
@@ -83,10 +85,12 @@ header {
     margin-top: 3vmax;
     height: 25vmax;
     width: 25vmax;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     background-color: #CCCCFF;
 }
 
@@ -99,7 +103,7 @@ header {
     width: 45vmax;
 }
 
-.button {
+.refreshButton {
     text-align: center;
     width: 20%;
     height: 150%;
@@ -107,19 +111,19 @@ header {
     color: white;
     text-decoration: none;
     border-radius: 50px;
-    background: #77108e;
+    background: #00BFFF;
     transition: 0.2s;
     margin-left: 2%;
 }
 
-.button:active {
+.refreshButton:hover {
+    background: #80A6FF;
+}
+
+.refreshButton:active {
     background: #00FFFF;
     box-shadow: 0 3vmax #00FFFF inset;
     color: black;
-}
-
-.refreshButton:hover {
-    background-color: #80A6FF;
 }
 
 .round {
@@ -134,9 +138,7 @@ header {
     margin-left: 2%;
 }
 
-.round:hover {
-    background-color: #CCCCFF;
-}
+.round:hover { background: #80A6FF; }
 
 .round:active {
     background: #00FFFF;
@@ -217,27 +219,14 @@ span {
     font-size: 1.5vmax;
 }
 
-@media all and (min-width: 320px) {
-    .headerCity, .headerInformation, .favourites, .favouritesAddCity, .city{
+@media all and (min-width: 900px) {
+    .headerCity, .headerInformation, .favourites, .favouritesAddCity, .city {
         flex: 1 1 0;
-    }
-
-    .button {
-        text-align: center;
-        width: 20%;
-        height: 150%;
-        font-size: 80%;
-        color: white;
-        text-decoration: none;
-        border-radius: 50px;
-        background: #00BFFF;
-        transition: 0.2s;
-        margin-left: 2%;
     }
 }
 
 @media all and (min-width: 320px) {
     body {
-        overflow-x: visible;
+        overflow-x: hidden;
     }
 }
