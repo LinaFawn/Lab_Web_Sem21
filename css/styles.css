@@ -52,6 +52,29 @@ header {
     background-color: #CCCCFF;
 }
 
+.button {
+    text-align: center;
+    width: 20%;
+    height: 150%;
+    font-size: 80%;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    background: #77108e;
+    transition: 0.2s;
+    margin-left: 2%;
+}
+
+.button:active {
+    background: #00FFFF;
+    box-shadow: 0 3vmax #00FFFF inset;
+    color: black;
+}
+
+.refreshButton:hover {
+    background-color: #80A6FF;
+}
+
 .break {
     flex-basis: 100%;
     height: 0;
@@ -219,7 +242,7 @@ span {
     font-size: 1.5vmax;
 }
 
-@media all and (min-width: 900px) {
+@media all and (min-width: 1000px) {
     .headerCity, .headerInformation, .favourites, .favouritesAddCity, .city {
         flex: 1 1 0;
     }
