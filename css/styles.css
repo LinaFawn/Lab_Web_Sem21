@@ -217,7 +217,7 @@ span {
     font-size: 1.5vmax;
 }
 
-@media all and (min-width: 320px) {
+@media all and (min-width: 768px) {
     .headerCity, .headerInformation, .favourites, .favouritesAddCity, .city {
         flex: 1 1 0;
     }
