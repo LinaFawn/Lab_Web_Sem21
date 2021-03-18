@@ -242,13 +242,16 @@ span {
     font-size: 1.5vmax;
 }
 
-@media all and (min-width: 1000px) {
+@media screen and (min-width: 1000px) {
     .headerCity, .headerInformation, .favourites, .favouritesAddCity, .city {
         flex: 1 1 0;
     }
+    .button{
+        background-color: #00BFFF;
+    }
 }
 
-@media all and (min-width: 320px) {
+@media screen and (min-width: 320px) {
     body {
         overflow-x: hidden;
     }
