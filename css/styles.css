@@ -100,6 +100,7 @@ header {
 .favorites {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-left: 2em;
 }
 .favForm {
     display: flex;
