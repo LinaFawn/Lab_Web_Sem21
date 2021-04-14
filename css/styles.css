@@ -25,16 +25,33 @@ button {
     cursor: pointer;
 }
 
-.header {
+header {
     display: grid;
     grid-template-columns: 3fr 1fr 3fr;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 2em;
 }
 .headerButton {
-    background-color: #BEC8CD;
+    text-align: center;
     padding: 0.5em;
-    border-radius: 5px;
+    font-size: 80%;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    background: #5c5b5b;
+    transition: 0.2s;
+    margin-left: 2%;
+}
+
+.headerButton:hover {
+    background: #89898b;
+}
+
+.headerButton:active {
+    background: #050505;
+    box-shadow: 0 3vmax #000000 inset;
+    color: white;
 }
 
 .headerWeather {
@@ -72,7 +89,7 @@ button {
     margin-bottom: 1em;
 }
 
-.headerWeatherType {
+.headerList li {
     display: flex;
     background-color: #BEC8CD;
     padding: 7px;
@@ -156,17 +173,18 @@ button {
         font-size: 0.8em;
     }
 
-    .header {
-        padding: 0.3em 0.6em 0.3em 0.6em;
+    header {
+        margin-left: 2em;
     }
 
 
-    .refreshText {
+    .refreshGeo {
         display: none;
     }
 
     .favorites {
         grid-template-columns: 1fr;
+        margin-left: 1.5em;
     }
 
     .favForm{
@@ -175,15 +193,18 @@ button {
     }
 
     .headerWeather {
-
         grid-template-columns: 1fr;
     }
     .headerList {
-        padding: 0.3em 0.6em 0.3em 0.6em;
         margin-bottom: 0;
     }
     .favWeather {
         grid-template-columns: 1fr;
+        margin: 0 1em 0 1em;
+    }
+
+    .favInput{
+        width: 100%;
     }
 
     .headerImg {
