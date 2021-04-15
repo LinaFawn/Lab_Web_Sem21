@@ -8,6 +8,10 @@
     <link rel="icon" href="./pictures/sun.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script src="js/index2.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/fetch.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/add.js"></script>
 </head>
 
 <body>
@@ -20,33 +24,32 @@
 <main class="weather">
     <section class="headerWeather">
         <div class="headerList">
-            <h2 class="headerCity">Saint Petersburg</h2>
+            <h2 class="headerCity">Loading...</h2>
             <div class="headerInf">
-                <img class="headerImg" src="pictures/sun.png"/>
-                <p class="headerTemp">8&#176;C</p>
+                <img class="headerImg"/>
+                <p class="headerTemp"></p>
             </div>
         </div>
-
         <ul class="headerList">
-            <li>
+            <li class="headerWeatherType">
                 <p class="headerType">Ветер</p>
-                <p class="headerValue">Moderate breeze, 6.0 m/s, North</p>
+                <p class="headerValue" id="hWind">?</p>
             </li>
-            <li>
+            <li class="headerWeatherType">
                 <p class="headerType">Облачность</p>
-                <p class="headerValue">Broken clouds</p>
+                <p class="headerValue" id="hCloudiness">Loading...</p>
             </li>
-            <li>
+            <li class="headerWeatherType">
                 <p class="headerType">Давление</p>
-                <p class="headerValue">1013 hp</p>
+                <p class="headerValue" id="hPressure">Loading...</p>
             </li>
-            <li>
+            <li class="headerWeatherType">
                 <p class="headerType">Влажность</p>
-                <p class="headerValue">53%</p>
+                <p class="headerValue" id="hHumidity">Loading...</p>
             </li>
-            <li>
+            <li class="headerWeatherType">
                 <p class="headerType">Координаты</p>
-                <p class="headerValue">[59.88, 30.42]</p>
+                <p class="headerValue" id="hCoordinates">Loading...</p>
             </li>
         </ul>
     </section>
@@ -55,127 +58,43 @@
         <h2 class="favoritesText">Избранное</h2>
         <form class="favForm">
             <input class="favInput" placeholder="Добавить новый город"/>
-            <button class="addButton"><i class="favPluse">+</i></button>
+            <button class="addButton">+</button>
         </form>
     </section>
 
     <section class="favWeather">
-        <ul class="favList">
-            <li class="favWeatherTitle">
-                <h3 class="favCity">Helsinki</h3>
-                <p class="favTemperature">5&#176;C</p>
-                <img class="favImg" src="pictures/sun.png"/>
-                <button class="favButton"><i class="faClose">&times;</i></button>
+        <template id="temp">
+            <li>
+                <ul class="favList">
+                    <li class="favWeatherTitle">
+                        <h3 class="favCity"></h3>
+                        <p class="favTemperature"></p>
+                        <img class="favImg" src=""/>
+                        <button class="favButton">&times;</button>
+                    </li>
+                    <li class="favWeatherType">
+                        <p class="favType">Ветер</p>
+                        <p class="favValue" id="favorites-wind">Loading...</p>
+                    </li>
+                    <li class="favWeatherType">
+                        <p class="favType">Облачность</p>
+                        <p class="favValue" id="favorites-cloudiness">Loading...</p>
+                    </li>
+                    <li class="favWeatherType">
+                        <p class="favType">Давление</p>
+                        <p class="favValue" id="favorites-pressure">Loading...</p>
+                    </li>
+                    <li class="favWeatherType">
+                        <p class="favType">Влажность</p>
+                        <p class="favValue" id="favorites-humidity">Loading...</p>
+                    </li>
+                    <li class="favWeatherType">
+                        <p class="favType">Координаты</p>
+                        <p class="favValue" id="favorites-coordinates">Loading...</p>
+                    </li>
+                </ul>
             </li>
-
-            <li class="favWeatherType">
-                <p class="favType">Ветер</p>
-                <p class="favValue">Moderate breeze, 6.0 m/s, North</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Облачность</p>
-                <p class="favValue">Broken clouds</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Давление</p>
-                <p class="favValue">1013 hpa</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Влажность</p>
-                <p class="favValue">53%</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Координаты</p>
-                <p class="favValue">[59.88, 30.42]</p>
-            </li>
-        </ul>
-
-        <ul class="favList">
-            <li class="favWeatherTitle">
-                <h3 class="favCity">Mockow</h3>
-                <p class="favTemperature">5&#176;C</p>
-                <img class="favImg" src="pictures/sun.png"/>
-                <button class="favButton"><i class="faClose">&times;</i></button>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Ветер</p>
-                <p class="favValue">Moderate breeze, 6.0 m/s, North</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Облачность</p>
-                <p class="favValue">Broken clouds</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Давление</p>
-                <p class="favValue">1013 hpa</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Влажность</p>
-                <p class="favValue">53%</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Координаты</p>
-                <p class="favValue">[59.88, 30.42]</p>
-            </li>
-        </ul>
-
-        <ul class="favList">
-            <li class="favWeatherTitle">
-                <h3 class="favCity">Helsinki</h3>
-                <p class="favTemperature">5&#176;C</p>
-                <img class="favImg" src="pictures/sun.png"/>
-                <button class="favButton"><i class="faClose">&times;</i></button>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Ветер</p>
-                <p class="favValue">Moderate breeze, 6.0 m/s, North</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Облачность</p>
-                <p class="favValue">Broken clouds</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Давление</p>
-                <p class="favValue">1013 hpa</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Влажность</p>
-                <p class="favValue">53%</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Координаты</p>
-                <p class="favValue">[59.88, 30.42]</p>
-            </li>
-        </ul>
-
-        <ul class="favList">
-            <li class="favWeatherTitle">
-                <h3 class="favCity">Moscow</h3>
-                <p class="favTemperature">5&#176;C</p>
-                <img class="favImg" src="pictures/sun.png"/>
-                <button class="favButton"><i class="faClose">&times;</i></button>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Ветер</p>
-                <p class="favValue">Moderate breeze, 6.0 m/s, North</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Облачность</p>
-                <p class="favValue">Broken clouds</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Давление</p>
-                <p class="favValue">1013 hpa</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Влажность</p>
-                <p class="favValue">53%</p>
-            </li>
-            <li class="favWeatherType">
-                <p class="favType">Координаты</p>
-                <p class="favValue">[59.88, 30.42]</p>
-            </li>
-        </ul>
+        </template>
     </section>
 </main>
 </body>

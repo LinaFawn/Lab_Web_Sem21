@@ -5,11 +5,9 @@ let apiKey = "2bbb7474e93316b574e7da337783076d"
 function loadCurrentCity() {
     navigator.geolocation.getCurrentPosition(
         position => {
-            console.log(position)
             loadWeatherDataByPos(position, onCurrentCityLoaded, errorDuringLoadingCurrent)
         },
         error => {
-            console.log(error)
             loadWeatherDataByName("Saint Petersburg", onCurrentCityLoaded, errorDuringLoadingCurrent)
         }, {timeout: 5000}
     )
@@ -40,30 +38,8 @@ function onCurrentCityLoaded(weather) {
     curCoordinates.textContent = `[${weather.coord.lat}, ${weather.coord.lon}]`
 }
 
-function addNewCityByName(name) {
-    addNewCity(false, (callback, errorCallback) => {
-        loadWeatherDataByName(name, callback, errorCallback)
-    })
-}
-
-function addNewCityById(id) {
-    addNewCity(true, (callback, errorCallback) => {
-        loadWeatherDataById(id, callback, errorCallback)
-    })
-}
-
-function addNewCity(fromStorage, loadFunc) {
-    let favoritesList = document.getElementsByClassName("favWeather")[0]
-    let element = createFavoriteCityElement(favoritesList)
-    loadFunc(weather => {
-        onCityLoaded(fromStorage, favoritesList, element, weather)
-    }, function () {
-        errorDuringLoadingFavorite(favoritesList, element)
-    })
-}
 
 function onCityLoaded(fromStorage, parent, element, weather) {
-    console.log(weather)
     let inStorage = getLocalFavorites().includes(weather.id)
     if (!inStorage || fromStorage) {
         fillCityElement(parent, element, weather)
@@ -86,7 +62,6 @@ function createFavoriteCityElement(parent) {
 }
 
 function errorDuringLoadingFavorite(parent, element) {
-    console.log(parent, element)
     parent.removeChild(element)
     alert("Can't load city")
 }
@@ -135,69 +110,6 @@ function getLocalFavorites() {
 }
 
 function saveFavorites(favorites) {
-    console.log(favorites)
     localStorage.favorites = JSON.stringify(favorites)
 }
 
-function loadWeatherDataByName(name, callback, errorCallback) {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}`
-    loadDataByUrl(url, callback, errorCallback)
-}
-
-function loadWeatherDataByPos(position, callback, errorCallback) {
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`
-    loadDataByUrl(url, callback, errorCallback)
-}
-
-function loadWeatherDataById(id, callback, errorCallback) {
-    let url = `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${apiKey}`
-    loadDataByUrl(url, callback, errorCallback)
-}
-
-function loadDataByUrl(url, callback, errorCallback) {
-    fetch(url)
-        .then(response => {
-            if (response.status === 200) {
-                response.json().then(json => {
-                    callback(json)
-                })
-            } else {
-                errorCallback()
-            }
-        })
-        .catch((err) => {
-            errorCallback()
-        })
-}
-
-window.onload = function () {
-    document.getElementsByClassName("favForm")[0].addEventListener('submit', event => {
-        event.preventDefault()
-    })
-    document.getElementsByClassName("addButton")[0].addEventListener("click", () => {
-        let input = document.getElementsByClassName("favInput")[0]
-        let cityName = input.value
-        let isBlank = cityName.trim() === ""
-        if (isBlank) return
-        input.value = ""
-        addNewCityByName(cityName)
-    })
-    document.getElementsByClassName("headerButton")[0].addEventListener("click", () => {
-        loadCurrentCity()
-    })
-    let favorites = getLocalFavorites()
-    favorites.forEach(item => {
-        addNewCityById(item)
-    })
-    loadCurrentCity()
-}
-
-window.addEventListener('offline', () => {
-    document.getElementsByClassName("addButton")[0].disabled = true
-    document.getElementsByClassName("headerButton")[0].disabled = true
-})
-
-window.addEventListener('online', () => {
-    document.getElementsByClassName("favButton")[0].disabled = false
-    document.getElementsByClassName("headerButton")[0].disabled = false
-})
