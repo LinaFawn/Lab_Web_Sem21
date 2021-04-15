@@ -1,3 +1,5 @@
+let apiKey = "2bbb7474e93316b574e7da337783076d"
+
 function loadWeatherDataByName(name, callback, errorCallback) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}`
     loadDataByUrl(url, callback, errorCallback)

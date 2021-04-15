@@ -1,5 +1,4 @@
-let apiKey = "2bbb7474e93316b574e7da337783076d"
-//`https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${appid}&`
+
 
 
 function loadCurrentCity() {
