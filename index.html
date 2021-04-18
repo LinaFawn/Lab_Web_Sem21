@@ -64,36 +64,37 @@
 
     <section class="favWeather">
         <template id="temp">
-            <li>
-                <ul class="favList">
-                    <li class="favWeatherTitle">
+            <section class="favList">
+                    <div class="favWeatherTitle">
                         <h3 class="favCity"></h3>
                         <p class="favTemperature"></p>
                         <img class="favImg" src=""/>
                         <button class="favButton">&times;</button>
-                    </li>
-                    <li class="favWeatherType">
+                    </div>
+                <ul class="favWeatherType">
+                    <li>
                         <p class="favType">Ветер</p>
                         <p class="favValue" id="favorites-wind">Loading...</p>
                     </li>
-                    <li class="favWeatherType">
+                    <li>
                         <p class="favType">Облачность</p>
                         <p class="favValue" id="favorites-cloudiness">Loading...</p>
                     </li>
-                    <li class="favWeatherType">
+                    <li">
                         <p class="favType">Давление</p>
                         <p class="favValue" id="favorites-pressure">Loading...</p>
                     </li>
-                    <li class="favWeatherType">
+                    <li>
                         <p class="favType">Влажность</p>
                         <p class="favValue" id="favorites-humidity">Loading...</p>
                     </li>
-                    <li class="favWeatherType">
+                    <li >
                         <p class="favType">Координаты</p>
                         <p class="favValue" id="favorites-coordinates">Loading...</p>
                     </li>
                 </ul>
-            </li>
+            </section>
+
         </template>
     </section>
 </main>
