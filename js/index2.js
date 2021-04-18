@@ -29,7 +29,7 @@ function onCurrentCityLoaded(weather) {
 
     curCel.textContent = `${Math.round((weather.main.temp - 273.15))}°C`
     curCity.textContent = weather.name
-    curImg.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`
+    curImg.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`
     curWind.textContent = `${weather.wind.speed} m/s, ${windDegToText(weather.wind.deg)}`
     curCloudiness.textContent = `${weather.clouds.all} %`
     curPressure.textContent = `${weather.main.pressure} hpa`
@@ -67,7 +67,7 @@ function errorDuringLoadingFavorite(parent, element) {
 
 function fillCityElement(parent, element, weather) {
     element.querySelector('.favCity').textContent = weather.name
-    element.querySelector('.favImg').src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
+    element.querySelector('.favImg').src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
     element.querySelector('.favTemperature').textContent = `${Math.round((weather.main.temp - 273.15))}°C`
     element.querySelector('.favButton').addEventListener("click", () => {
         parent.removeChild(element)
