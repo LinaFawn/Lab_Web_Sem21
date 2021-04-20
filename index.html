@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="./pictures/sun.png">
     <link rel="icon" href="./pictures/sun.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script src="js/index2.js"></script>
+    <script src="js/print.js"></script>
     <script src="js/index.js"></script>
     <script src="js/fetch.js"></script>
     <script src="js/load.js"></script>
     <script src="js/add.js"></script>
+    <script src="js/favCit.js"></script>
 </head>
 
 <body>
@@ -21,15 +22,22 @@
     <button type="submit" class="headerButton">Обновить геолокацию</button>
 </header>
 
-<main class="weather">
-    <section class="headerWeather">
-        <div class="headerList">
+<main>
+    <section class="loader" id="loader">
+        <img src="pictures/load.gif">
+        <h1>Загрузка данных</h1>
+    </section>
+
+    <section class="headerWeather" id="headerWeather">
+
+        <div class="headerInfo" id="headerInfo">
             <h2 class="headerCity">Loading...</h2>
             <div class="headerInf">
-                <img class="headerImg"/>
+                <img class="headerImg">
                 <p class="headerTemp"></p>
             </div>
         </div>
+
         <ul class="headerList">
             <li>
                 <p class="headerType">Ветер</p>
@@ -52,6 +60,7 @@
                 <p class="headerValue" id="hCoordinates">Loading...</p>
             </li>
         </ul>
+
     </section>
 
     <section class="favorites">
@@ -62,15 +71,22 @@
         </form>
     </section>
 
-    <section class="favWeather">
+    <section class="favWeather" id="favWeather">
         <template id="temp">
             <section class="favList">
-                    <div class="favWeatherTitle">
-                        <h3 class="favCity"></h3>
-                        <p class="favTemperature"></p>
-                        <img class="favImg" src=""/>
-                        <button class="favButton">&times;</button>
-                    </div>
+
+                <div class="loaderCity" id="loaderCity">
+                    <img src="pictures/load.gif">
+                    <h1>Загрузка данных</h1>
+                </div>
+
+                <div class="favWeatherTitle">
+                    <h3 class="favCity"></h3>
+                    <p class="favTemperature"></p>
+                    <img class="favImg" src=""/>
+                    <button class="favButton">&times;</button>
+                </div>
+
                 <ul class="favWeatherType">
                     <li>
                         <p class="favType">Ветер</p>

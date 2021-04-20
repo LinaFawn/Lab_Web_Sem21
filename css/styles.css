@@ -59,6 +59,14 @@ header {
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
 }
+.headerInfo {
+    display: flex;
+    padding: 1em 2em 1em 2em;
+    flex-direction: column;
+    justify-items: center;
+    margin-bottom: 2em;
+}
+
 .headerList {
     display: flex;
     padding: 1em 2em 1em 2em;
@@ -159,6 +167,27 @@ header {
     padding: 7px;
     justify-content: space-between;
     margin: 0.25em 0 0.25em;
+}
+
+.loader{
+    display: flex;
+    align-items: center;
+    padding: 2em;
+}
+
+.loader img{
+    height: 50px;
+    margin-right: 20px;
+}
+
+.loaderCity{
+    display: flex;
+    align-items: center;
+}
+
+.loaderCity img{
+    max-height: 2em;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 695px) {

@@ -1,4 +1,3 @@
-
 function loadDataByUrl(url, callback, errorCallback) {
     fetch(url)
         .then(response => {

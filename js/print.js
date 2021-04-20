@@ -1,4 +1,21 @@
+//Заставка на загрузку данных
+function loadingCity() {
+    const loaderLocation = document.querySelector('.headerWeather');
+    const loaderGrid = document.querySelector('.favWeather');
+    const loader = document.querySelector('.loader');
+    loader.style.display = 'none';
+    loaderLocation.style.display = 'grid';
+    loaderGrid.style.display = 'grid';
+}
 
+function loading(){
+    const loaderLocation = document.querySelector('.headerWeather');
+    const loader = document.querySelector('.loader');
+
+    loader.style.display = 'flex';
+    loaderLocation.style.display = 'none';
+
+}
 
 
 function loadCurrentCity() {
@@ -10,6 +27,7 @@ function loadCurrentCity() {
             loadWeatherDataByName("Saint Petersburg", onCurrentCityLoaded, errorDuringLoadingCurrent)
         }, {timeout: 5000}
     )
+    loadingCity();
 }
 
 function errorDuringLoadingCurrent() {
@@ -40,6 +58,7 @@ function onCurrentCityLoaded(weather) {
 
 function onCityLoaded(fromStorage, parent, element, weather) {
     let inStorage = getLocalFavorites().includes(weather.id)
+    loadingCity();
     if (!inStorage || fromStorage) {
         fillCityElement(parent, element, weather)
         if (!inStorage) {
@@ -49,6 +68,7 @@ function onCityLoaded(fromStorage, parent, element, weather) {
         alert("This city already in favorite")
         parent.removeChild(element)
     }
+
 }
 
 function createFavoriteCityElement(parent) {
@@ -56,7 +76,6 @@ function createFavoriteCityElement(parent) {
     let newFav = template.content.cloneNode(true)
     let element = newFav.childNodes[1]
     parent.appendChild(element)
-
     return element
 }
 
@@ -92,23 +111,5 @@ function windDegToText(degree) {
     return 'Northerly'
 }
 
-function addToLocalFavorites(id) {
-    let favorites = getLocalFavorites()
-    favorites.push(id)
-    saveFavorites(favorites)
-}
 
-function removeFromLocalFavorites(id) {
-    let favorites = getLocalFavorites().filter(value => value !== id)
-    saveFavorites(favorites)
-}
-
-function getLocalFavorites() {
-    if (localStorage.favorites === undefined || localStorage.favorites === "") return []
-    return JSON.parse(localStorage.favorites)
-}
-
-function saveFavorites(favorites) {
-    localStorage.favorites = JSON.stringify(favorites)
-}
 
