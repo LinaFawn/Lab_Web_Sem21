@@ -1,5 +1,13 @@
-function loadDataByUrl(url, callback, errorCallback) {
-    fetch(url)
+async function loadDataByUrl(url, callback, errorCallback) {
+    res = await (await fetch(url)).json;
+    if (res.status == 200){
+        callback(json)
+    } else{
+        errorCallback()
+    }
+
+}
+  /*  fetch(url)
         .then(response => {
             if (response.status === 200) {
                 response.json().then(json => {
@@ -12,4 +20,5 @@ function loadDataByUrl(url, callback, errorCallback) {
         .catch((err) => {
             errorCallback()
         })
-}
+
+   */

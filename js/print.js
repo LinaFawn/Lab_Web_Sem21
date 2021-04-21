@@ -8,15 +8,6 @@ function loadingCity() {
     loaderGrid.style.display = 'grid';
 }
 
-function loading(){
-    const loaderLocation = document.querySelector('.headerWeather');
-    const loader = document.querySelector('.loader');
-
-    loader.style.display = 'flex';
-    loaderLocation.style.display = 'none';
-
-}
-
 
 function loadCurrentCity() {
     navigator.geolocation.getCurrentPosition(
