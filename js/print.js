@@ -7,7 +7,12 @@ function loadingCity() {
     loaderLocation.style.display = 'grid';
     loaderGrid.style.display = 'grid';
 }
-
+function loading() {
+    const loaderGrid = document.querySelector('.favList');
+    const loader = document.querySelector('.loaderCity');
+    loader.style.display = 'none';
+    loaderGrid.style.display = 'grid';
+}
 
 function loadCurrentCity() {
     navigator.geolocation.getCurrentPosition(
@@ -18,7 +23,7 @@ function loadCurrentCity() {
             loadWeatherDataByName("Saint Petersburg", onCurrentCityLoaded, errorDuringLoadingCurrent)
         }, {timeout: 5000}
     )
-    loadingCity();
+
 }
 
 function errorDuringLoadingCurrent() {
@@ -49,7 +54,7 @@ function onCurrentCityLoaded(weather) {
 
 function onCityLoaded(fromStorage, parent, element, weather) {
     let inStorage = getLocalFavorites().includes(weather.id)
-    loadingCity();
+
     if (!inStorage || fromStorage) {
         fillCityElement(parent, element, weather)
         if (!inStorage) {
@@ -76,6 +81,7 @@ function errorDuringLoadingFavorite(parent, element) {
 }
 
 function fillCityElement(parent, element, weather) {
+
     element.querySelector('.favCity').textContent = weather.name
     element.querySelector('.favImg').src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
     element.querySelector('.favTemperature').textContent = `${Math.round((weather.main.temp - 273.15))}°C`
