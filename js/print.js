@@ -23,7 +23,6 @@ function loadCurrentCity() {
             loadWeatherDataByName("Saint Petersburg", onCurrentCityLoaded, errorDuringLoadingCurrent)
         }, {timeout: 5000}
     )
-
 }
 
 function errorDuringLoadingCurrent() {
@@ -43,7 +42,7 @@ function onCurrentCityLoaded(weather) {
 
     curCel.textContent = `${Math.round((weather.main.temp - 273.15))}°C`
     curCity.textContent = weather.name
-    curImg.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`
+    curImg.src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`
     curWind.textContent = `${weather.wind.speed} m/s, ${windDegToText(weather.wind.deg)}`
     curCloudiness.textContent = `${weather.clouds.all} %`
     curPressure.textContent = `${weather.main.pressure} hpa`
@@ -54,7 +53,6 @@ function onCurrentCityLoaded(weather) {
 
 function onCityLoaded(fromStorage, parent, element, weather) {
     let inStorage = getLocalFavorites().includes(weather.id)
-
     if (!inStorage || fromStorage) {
         fillCityElement(parent, element, weather)
         if (!inStorage) {
@@ -64,7 +62,6 @@ function onCityLoaded(fromStorage, parent, element, weather) {
         alert("This city already in favorite")
         parent.removeChild(element)
     }
-
 }
 
 function createFavoriteCityElement(parent) {
@@ -72,6 +69,7 @@ function createFavoriteCityElement(parent) {
     let newFav = template.content.cloneNode(true)
     let element = newFav.childNodes[1]
     parent.appendChild(element)
+
     return element
 }
 
@@ -81,9 +79,8 @@ function errorDuringLoadingFavorite(parent, element) {
 }
 
 function fillCityElement(parent, element, weather) {
-
     element.querySelector('.favCity').textContent = weather.name
-    element.querySelector('.favImg').src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
+    element.querySelector('.favImg').src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
     element.querySelector('.favTemperature').textContent = `${Math.round((weather.main.temp - 273.15))}°C`
     element.querySelector('.favButton').addEventListener("click", () => {
         parent.removeChild(element)

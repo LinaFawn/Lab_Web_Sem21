@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Погода</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js3/index.js"></script>
+    <script src="js3/favCit.js"></script>
+    <script src="js3/load.js"></script>
+    <script src="js3/add.js"></script>
+    <script src="js3/print.js"></script>
+</head>
+
+<body>
+
+<header>
+    <h1 class="headerText">Погода здесь</h1>
+    <button type="submit" class="headerButton">Обновить геолокацию</button>
+</header>
+
+<main>
+    <section class="headerWeather">
+
+        <div class="headerList">
+            <h2 class="headerCity">Loading</h2>
+            <div class="headerInf">
+                <img class="headerImg"/>
+                <p class="headerTemp">Loading</p>
+            </div>
+        </div>
+
+        <ul class="headerList">
+            <li>
+                <p class="headerType">Ветер</p>
+                <p class="headerValue" id="hWind">Loading...</p>
+            </li>
+            <li>
+                <p class="headerType">Облачность</p>
+                <p class="headerValue" id="hCloudiness">Loading...</p>
+            </li>
+            <li>
+                <p class="headerType">Давление</p>
+                <p class="headerValue" id="hPressure">Loading...</p>
+            </li>
+            <li>
+                <p class="headerType">Влажность</p>
+                <p class="headerValue" id="hHumidity">Loading...</p>
+            </li>
+            <li>
+                <p class="headerType">Координаты</p>
+                <p class="headerValue" id="hCoordinates">Loading...</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="favorites">
+        <h2 class="favoritesText">Избранное</h2>
+        <form class="favForm">
+            <input class="favInput" placeholder="Добавить новый город"/>
+            <button class="addButton">+</button>
+        </form>
+    </section>
+
+    <section class="favWeather">
+        <template id="temp">
+            <section class="favList">
+
+                <div class="favWeatherTitle">
+                    <h3 class="favCity"></h3>
+                    <p class="favTemperature"></p>
+                    <img class="favImg"/>
+                    <button class="favButton">&times;</button>
+                </div>
+
+                <ul class="favWeatherType">
+                    <li>
+                        <p class="favType">Ветер</p>
+                        <p class="favValue" id="favorites-wind"></p>
+                    </li>
+                    <li>
+                        <p class="favType">Облачность</p>
+                        <p class="favValue" id="favorites-cloudiness"></p>
+                    </li>
+                    <li>
+                        <p class="favType">Давление</p>
+                        <p class="favValue" id="favorites-pressure"></p>
+                    </li>
+                    <li>
+                        <p class="favType">Влажность</p>
+                        <p class="favValue" id="favorites-humidity"></p>
+                    </li>
+                    <li>
+                        <p class="favType">Координаты</p>
+                        <p class="favValue" id="favorites-coordinates"></p>
+                    </li>
+                </ul>
+
+            </section>
+
+        </template>
+    </section>
+</main>
+</body>
+</html>
